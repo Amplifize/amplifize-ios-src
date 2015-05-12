@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <RestKit/RestKit.h>
 #import "LoginManager.h"
+#import "LoginSegue.h"
 #import "User.h"
 
 @interface ViewController ()
@@ -21,11 +22,15 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view, typically from a nib.
-    [[LoginManager alloc] LoginWithEmail:@"melih@onvural.net" password:@"1234"];}
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)login:(id)sender {
+    [[LoginManager alloc] LoginWithEmail:self.loginEmail.text password:self.loginPassword.text viewController:self];
 }
 
 @end

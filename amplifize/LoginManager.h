@@ -7,6 +7,6 @@
 @property (nonatomic, strong) LoginRequest *dataObject;
 @property (nonatomic, strong) RKObjectManager *objectManager;
 @property (nonatomic, strong) AFHTTPClient * client;
--(void)LoginWithEmail:(NSString *)email password:(NSString*)password;
+-(void)LoginWithEmail:(NSString *)email password:(NSString*)password viewController:(UIViewController*)vc;
 
 @end

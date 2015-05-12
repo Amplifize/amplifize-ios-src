@@ -6,7 +6,7 @@
 
 @implementation LoginManager
 
--(void)LoginWithEmail:(NSString *)email password:(NSString*)password {
+-(void)LoginWithEmail:(NSString *)email password:(NSString*)password viewController:(UIViewController*)vc {
     
     LoginRequest *dataObject = [[LoginRequest alloc] init];
     [dataObject setEmail:email];
@@ -42,6 +42,7 @@
     [objectManager postObject:dataObject path:@""
                    parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                        NSLog(@"It Worked: %@", [mappingResult array]);
+                       [vc performSegueWithIdentifier:@"loginSuccess" sender:self];
                        
                    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
                        NSLog(@"It Failed: %@", error);
